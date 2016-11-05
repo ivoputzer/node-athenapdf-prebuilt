@@ -3,3 +3,5 @@ lib/
 
 .gitignore
 .npmigore
+
+athenapdf-prebuilt-*.*.*.tgz
