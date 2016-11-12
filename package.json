@@ -17,16 +17,19 @@
     "url": "https://github.com/ivoputzer/node-athenapdf-prebuilt/issues"
   },
   "main": "index.js",
-  "bin": "",
+  "bin": "lib/athenapdf/cli/bin/athenapdf",
   "scripts": {
-    "test": "npm pack; mocha --recursive",
-    "preinstall": "echo \"what the fuck\""
+    "node": "node",
+    "test": "mocha --recursive",
+    "preinstall": "node bin/git/modules",
+    "postinstall": "npm build lib/athenapdf/cli"
   },
+  "config": {},
   "dependencies": {
     "athenapdf": "file:lib/athenapdf/cli"
   },
   "devDependencies": {
     "mocha": "^3.1.2",
-    "node-uuid": "^1.4.7"
+    "fs-extra": "^1.0.0"
   }
 }
