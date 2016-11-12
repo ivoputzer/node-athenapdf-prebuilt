@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-git config -f .gitmodules --get-regexp "^submodule\..*\.path$" | while read path_key path; do
-  git submodule add $(git config -f .gitmodules --get "$(echo $path_key | sed "s/\.path/.url/")") $path
-done

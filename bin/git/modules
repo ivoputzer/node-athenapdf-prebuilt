@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+const {readFileSync, removeSync} = require('fs-extra')
+const {execSync} = require('child_process')
+const {parse} = require('ini')
+
+try {
+  execSync(`git rev-parse --is-inside-work-tree`, {stdio: 'ignore'})
+} catch (err) {
+  execSync(`git init`, {stdio: 'ignore'})
+  Object
+    .entries(parse(readFileSync('.gitmodules' , 'utf8')))
+    .map(([_, submodule]) => submodule)
+    .forEach(function({path, url}){
+      removeSync(path)
+      execSync(`git submodule add ${url} ${path}`)
+    })
+} finally {
+  execSync(`git submodule update --init --recursive --remote`)
+}
