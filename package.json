@@ -20,12 +20,10 @@
   "bin": "lib/athenapdf/cli/bin/athenapdf",
   "scripts": {
     "test": "mocha --recursive --no-timeouts",
-    "preinstall": "git init -q; node bin/git/modules | xargs git submodule add",
-    "postinstall": "npm build lib/athenapdf/cli"
+    "preinstall": "bin/preinstall",
+    "postinstall": "bin/postinstall"
   },
-  "dependencies": {
-    "athenapdf": "file:lib/athenapdf/cli"
-  },
+  "dependencies": {},
   "devDependencies": {
     "mocha": "^3.1.2",
     "fs-extra": "^1.0.0"
