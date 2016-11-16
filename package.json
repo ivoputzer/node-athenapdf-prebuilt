@@ -20,7 +20,7 @@
   "bin": "lib/athenapdf/cli/bin/athenapdf",
   "scripts": {
     "test": "mocha --recursive --no-timeouts",
-    "preinstall": "node bin/git/modules | xargs -n 2 git submodule add",
+    "preinstall": "git init -q; node bin/git/modules | xargs git submodule add",
     "postinstall": "npm build lib/athenapdf/cli"
   },
   "dependencies": {
