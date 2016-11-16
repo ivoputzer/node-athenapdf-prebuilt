@@ -19,12 +19,10 @@
   "main": "index.js",
   "bin": "lib/athenapdf/cli/bin/athenapdf",
   "scripts": {
-    "node": "node",
-    "test": "mocha --recursive",
-    "preinstall": "node bin/git/modules",
+    "test": "mocha --recursive --no-timeouts",
+    "preinstall": "node bin/git/modules | xargs -n 2 git submodule add",
     "postinstall": "npm build lib/athenapdf/cli"
   },
-  "config": {},
   "dependencies": {
     "athenapdf": "file:lib/athenapdf/cli"
   },
