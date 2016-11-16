@@ -34,8 +34,9 @@ describe(`as a developer`, function(){
       const prefix = resolve('test_modules')
 
       // emptyDirSync(prefix)
-      execSync('npm run preinstall', {cwd: dirname(tgz_package)})
-      execSync('npm install', {cwd: dirname(tgz_package)})
+      console.log(execSync('npm run preinstall', {cwd: dirname(tgz_package)}).toString())
+      console.log(execSync('npm install', {cwd: dirname(tgz_package)}).toString())
+      // execSync('npm install', {cwd: dirname(tgz_package)})
       // execSync(`npm run preinstall`, {cwd: dirname(tgz_package)})
       // console.log( execSync(`npm install`, {cwd: tmpdir}).toString() )
       // console.log( execSync(`cat ${tmpdir}/package.json`).toString() )
