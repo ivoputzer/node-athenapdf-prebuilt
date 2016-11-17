@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 
-set -e
-
 cd lib/athenapdf/cli
+
 npm install
 npm build
 npm link

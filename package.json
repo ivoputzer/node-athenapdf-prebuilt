@@ -20,8 +20,8 @@
   "bin": "lib/athenapdf/cli/bin/athenapdf",
   "scripts": {
     "test": "mocha --recursive --no-timeouts",
-    "preinstall": "bin/preinstall",
-    "postinstall": "bin/postinstall"
+    "preinstall": "bin/preinstall.sh",
+    "postinstall": "bin/postinstall.sh"
   },
   "dependencies": {},
   "devDependencies": {
