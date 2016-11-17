@@ -32,7 +32,10 @@ describe(`as a developer`, function(){
       const node_modules = join(tmpdir, 'node_modules')
       remove(node_modules, (err) => {
         if (err) return done(err)
-        exec(`npm install ${npm_package_name}`, {cwd: tmpdir}, done) // skip binary check
+        exec(`npm install ${npm_package_name}`, {cwd: tmpdir}, (err, stdout) => {
+          if (err) return done(err)
+          access(join(node_modules, '.bin', 'athenapdf'), S_IXOTH, done)
+        })
       })
     })
   })
