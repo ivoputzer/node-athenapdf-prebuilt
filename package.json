@@ -23,11 +23,9 @@
   "scripts": {
     "test": "mocha --recursive --no-timeouts",
     "athenapdf": "athenapdf",
-    "gitmodules": "git config -f .gitmodules --get-regex submodule\\.\\*url | sed 's/submodule.//g;s/.url//g' | awk '{print $2,$1}'",
-    "postinstall": "npm run -s gitmodules | xargs -n2 git clone --recursive | sh; npm install --save lib/athenapdf/cli"
+    "postinstall": "bin/make-athenapdf-cli"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "mocha": "^3.1.2",
     "fs-extra": "^1.0.0"
