@@ -24,7 +24,7 @@
     "test": "mocha --recursive --no-timeouts",
     "gitmodules": "git config -f .gitmodules --get-regex submodule\\.\\*url | sed 's/submodule.//g;s/.url//g' | awk '{print $2,$1}'",
     "preinstall": "npm run -s gitmodules | xargs -n2 git clone --recursive | sh",
-    "postinstall": "npm link lib/athenapdf/cli; cd lib/athenapdf/cli; npm install; npm run build"
+    "postinstall": "(cd lib/athenapdf/cli; npm install; npm run build) && npm link lib/athenapdf/cli"
   },
   "dependencies": {
   },
