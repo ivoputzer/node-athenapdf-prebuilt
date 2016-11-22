@@ -22,12 +22,11 @@
   },
   "scripts": {
     "test": "mocha --recursive --no-timeouts",
-    "modules": "git config -f .gitmodules --get-regex submodule\\.\\*url | sed 's/submodule.//g;s/.url//g' | awk '{print $2,$1}'",
-    "preinstall": "npm run -s modules | xargs -n2 git clone --recursive | sh",
-    "postinstall": "npm install --save lib/athenapdf/cli"
+    "gitmodules": "git config -f .gitmodules --get-regex submodule\\.\\*url | sed 's/submodule.//g;s/.url//g' | awk '{print $2,$1}'",
+    "preinstall": "npm run -s gitmodules | xargs -n2 git clone --recursive | sh",
+    "postinstall": "npm link lib/athenapdf/cli; cd lib/athenapdf/cli; npm install; npm run build"
   },
   "dependencies": {
-    "athenapdf": "file://lib/athenapdf/cli"
   },
   "devDependencies": {
     "mocha": "^3.1.2",
