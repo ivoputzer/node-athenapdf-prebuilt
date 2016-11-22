@@ -22,8 +22,7 @@
   },
   "scripts": {
     "test": "mocha --recursive --no-timeouts",
-    "preinstall": "bin/preinstall.sh",
-    "postinstall": "bin/postinstall.sh"
+    "preinstall": "git config -f .gitmodules --get-regex submodule\\.\\*url | sed 's/submodule.//g;s/.url//g' | awk '{print $2,$1}' | xargs -n2 git clone --recursive | sh"
   },
   "dependencies": {
     "athenapdf": "file:lib/athenapdf/cli"
