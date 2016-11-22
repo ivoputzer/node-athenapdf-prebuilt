@@ -1,4 +1,5 @@
 node_modules/
 
 athenapdf-prebuilt-*.*.*.tgz
+npm-*
 todo.*
