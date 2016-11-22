@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# echo "PREBUILT-PREINSTALL"
+
 git config -f .gitmodules --get-regex submodule\.\*url \
   | sed 's/submodule.//g;s/.url//g' \
   | awk '{print $2,$1}' \
