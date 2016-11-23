@@ -5,15 +5,13 @@ set -e
 git config -f .gitmodules --get-regex submodule.*url \
 | sed 's/submodule.//g;s/.url//g' \
 | awk '{print $2,$1}' \
-| xargs -n 2 git clone --recursive 2> /dev/null \
+| xargs -n 2 git clone --recursive \
 | sh
 
-echo "cwd ($(pwd))"
-
+echo "Switching directories... $(pwd) ~> lib/athenapdf/cli"
 cd lib/athenapdf/cli
 
-echo "install, build, link ($(pwd))"
-
+echo "Running... install, build, link ~> $(pwd)"
 npm install
 npm run build
 npm link
