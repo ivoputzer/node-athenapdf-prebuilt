@@ -2,19 +2,14 @@
 
 set -e
 
+# gitmodules
+
 git config -f .gitmodules --get-regex submodule.*url \
 | sed 's/submodule.//g;s/.url//g' \
 | awk '{print $2,$1}' \
 | xargs -n 2 git clone --progress --verbose --recursive \
 | sh
 
-echo "Switching directories... $(pwd) ~> lib/athenapdf/cli"
-(
-  cd lib/athenapdf/cli
-  echo "Running... install ~> $(pwd)"
-  npm install
-  echo "Running... build ~> $(pwd)"
-  npm run build
-  echo "Running... link ~> $(pwd)"
-  npm link
-)
+# athenapdf
+athenapdf=lib/athenapdf/cli
+(cd $athenapdf && npm install && npm run build) && npm link $athenapdf
