@@ -8,4 +8,4 @@ git config -f .gitmodules --get-regex submodule.*url \
 | xargs -n 2 git clone --recursive 2> /dev/null \
 | sh
 
-npm install lib/athenapdf/cli --save # prevents from install being re-run
+(cd lib/athenapdf/cli && npm install && npm run build) && npm link lib/athenapdf/cli
