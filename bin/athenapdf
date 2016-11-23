@@ -1,10 +1,1 @@
-#!/usr/bin/env node
-
-const {resolve, join} = require('path')
-const {spawn} = require('child_process')
-
-const bin = join(__dirname, '../lib/athenapdf/cli/bin/athenapdf')
-const arg = process.argv.slice(2)
-
-spawn(resolve(bin), arg, {stdio: 'inherit', cwd: resolve(process.cwd())})
-  .on('close', process.exit)
+../lib/athenapdf/cli/bin/athenapdf
