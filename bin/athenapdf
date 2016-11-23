@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-set -e
-./node_modules/athenapdf/bin/athenapdf $@

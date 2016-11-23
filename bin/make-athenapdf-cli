@@ -1,20 +1,14 @@
 #!/usr/bin/env sh
 
-set -e
-echo "Downloading git modules... $(pwd)"
+set -o xtrace
+
 git config -f .gitmodules --get-regex submodule.*url \
 | sed 's/submodule.//g;s/.url//g' \
 | awk '{print $2,$1}' \
 | xargs -n 2 git clone --progress --verbose --recursive \
 | sh
-(
-  echo "Switching directories... $(pwd)"
-  cd lib/athenapdf/cli
-  echo "Installing package... $(pwd)"
-  npm install
-  echo "Building package... $(pwd)"
-  npm run build
-  echo "Linking package... $(pwd)"
-  npm link
-) && npm link athenapdf
-echo "Done. $(pwd)"
+
+npm install lib/athenapdf/cli
+
+npm explore athenapdf -- npm install
+npm explore athenapdf -- npm run build
