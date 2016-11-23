@@ -5,7 +5,7 @@ set -e
 git config -f .gitmodules --get-regex submodule.*url \
 | sed 's/submodule.//g;s/.url//g' \
 | awk '{print $2,$1}' \
-| xargs -n 2 git clone --recursive \
+| xargs -n 2 git clone --progress --verbose --recursive \
 | sh
 
 echo "Switching directories... $(pwd) ~> lib/athenapdf/cli"
