@@ -9,9 +9,12 @@ git config -f .gitmodules --get-regex submodule.*url \
 | sh
 
 echo "Switching directories... $(pwd) ~> lib/athenapdf/cli"
-cd lib/athenapdf/cli
-
-echo "Running... install, build, link ~> $(pwd)"
-npm install
-npm run build
-npm link
+(
+  cd lib/athenapdf/cli
+  echo "Running... install ~> $(pwd)"
+  npm install --production
+  echo "Running... build ~> $(pwd)"
+  npm run build
+  echo "Running... link ~> $(pwd)"
+  npm link
+)

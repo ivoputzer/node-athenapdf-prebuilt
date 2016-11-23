@@ -21,9 +21,6 @@
     "test": "mocha --recursive --no-timeouts",
     "preinstall": "bin/make-athenapdf-cli"
   },
-  "peerDependencies": {
-    "athenapdf": "^0.0.0"
-  },
   "devDependencies": {
     "mocha": "^3.1.2",
     "fs-extra": "^1.0.0"
