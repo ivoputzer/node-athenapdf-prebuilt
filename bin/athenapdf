@@ -1,2 +1,1 @@
-#!/usr/bin/env sh
-lib/athenapdf/cli/bin/athenapdf $@
+lib/athenapdf/cli/bin/athenapdf
