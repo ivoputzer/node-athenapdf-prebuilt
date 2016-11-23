@@ -1,1 +1,3 @@
-lib/athenapdf/cli/bin/athenapdf
+#!/usr/bin/env sh
+set -e
+./node_modules/athenapdf/bin/athenapdf $@
