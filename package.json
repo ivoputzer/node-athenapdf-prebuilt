@@ -17,9 +17,6 @@
     "url": "https://github.com/ivoputzer/node-athenapdf-prebuilt/issues"
   },
   "main": "index.js",
-  "bin": {
-    "athenapdf": "lib/athenapdf/cli/bin/athenapdf"
-  },
   "scripts": {
     "test": "mocha --recursive --no-timeouts",
     "athenapdf": "athenapdf",
