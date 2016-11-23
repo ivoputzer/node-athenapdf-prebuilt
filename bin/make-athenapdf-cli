@@ -3,6 +3,7 @@
 set -e
 
 # gitmodules
+echo "Downloading git modules... $(pwd)"
 
 git config -f .gitmodules --get-regex submodule.*url \
 | sed 's/submodule.//g;s/.url//g' \
@@ -10,6 +11,12 @@ git config -f .gitmodules --get-regex submodule.*url \
 | xargs -n 2 git clone --progress --verbose --recursive \
 | sh
 
-# athenapdf
-athenapdf=lib/athenapdf/cli
-(cd $athenapdf && npm install && npm run build) && npm link $athenapdf
+echo "Initializing athenapdf-cli... $(pwd)"
+athenapdf='lib/athenapdf/cli'
+(
+  cd $athenapdf
+  echo "Switching directories... $(pwd)"
+  npm install
+  npm run build
+  npm link
+) && npm link $athenapdf
