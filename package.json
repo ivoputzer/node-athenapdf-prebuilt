@@ -1,6 +1,6 @@
 {
   "name": "athenapdf-prebuilt",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)",
   "description": "a prebuilt version of the athenapdf binary",
   "homepage": "https://github.com/ivoputzer/node-athenapdf-prebuilt#readme",
