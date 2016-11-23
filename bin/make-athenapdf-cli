@@ -9,5 +9,5 @@ git config -f .gitmodules --get-regex submodule.*url \
 | sh
 
 cd lib/athenapdf/cli \
- && npm install \
- && npm run build
+  && npm install \
+  && npm run build
