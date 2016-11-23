@@ -12,7 +12,7 @@ echo "Switching directories... $(pwd) ~> lib/athenapdf/cli"
 (
   cd lib/athenapdf/cli
   echo "Running... install ~> $(pwd)"
-  npm install --production
+  npm install
   echo "Running... build ~> $(pwd)"
   npm run build
   echo "Running... link ~> $(pwd)"
