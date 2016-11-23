@@ -7,8 +7,9 @@ git config -f .gitmodules --get-regex submodule.*url \
 | awk '{print $2,$1}' \
 | xargs -n 2 git clone --progress --verbose --recursive \
 | sh
-
-npm install lib/athenapdf/cli
-
-npm explore athenapdf -- npm install
-npm explore athenapdf -- npm run build
+(
+  cd lib/athenapdf/cli
+  npm install
+  npm run build
+  npm link
+)
